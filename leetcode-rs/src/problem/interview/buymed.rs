@@ -26,14 +26,23 @@ pub fn problem1(array: &Vec<u8>) -> &[u8] {
     &array[max_idx..max_idx + max]
 }
 
-pub fn problem1_test_case() {
-    assert_eq!(
-        problem1(&vec![1, 2, 5, 3, 7, 9, 1, 2, 11, 14, 3, 4, 13]),
-        [1, 2, 11, 14]
-    );
+#[cfg(test)]
+mod tests {
+    use crate::problem::interview::buymed::problem1;
 
-    assert_eq!(
-        problem1(&vec![3, 1, 2, 43, 5, 123, 12, 64, 23, 34, 5, 1, 2]),
-        [1, 2, 43]
-    );
+    #[test]
+    fn case1() {
+        assert_eq!(
+            problem1(&vec![1, 2, 5, 3, 7, 9, 1, 2, 11, 14, 3, 4, 13]),
+            [1, 2, 11, 14]
+        );
+    }
+
+    #[test]
+    fn case2() {
+        assert_eq!(
+            problem1(&vec![3, 1, 2, 43, 5, 123, 12, 64, 23, 34, 5, 1, 2]),
+            [1, 2, 43]
+        );
+    }
 }

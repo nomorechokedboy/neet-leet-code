@@ -28,17 +28,30 @@ pub fn fib_recursion(n: i32) -> i32 {
     fib_recursion(n - 1) + fib_recursion(n - 2)
 }
 
-pub fn test_fib() {
-    let mut memoized = [0; 100];
-    let expected64: u64 = 39088169;
-    let expected_usize: usize = 39088169;
-    let expected_i32: i32 = 39088169;
+#[cfg(test)]
+mod tests {
+    use crate::problem::dp::fibonacci::fib_memoized;
+    use crate::problem::dp::fibonacci::fib_recursion;
+    use crate::problem::dp::fibonacci::fib_tabulated;
 
-    let recursion = fib_recursion(38);
-    let tabulated = fib_tabulated(38);
-    let memoized = fib_memoized(38, &mut memoized);
+    #[test]
+    fn test_fib_tabulated() {
+        let expected: u64 = 39088169;
+        let tabulated = fib_tabulated(38);
+        assert_eq!(tabulated, expected);
+    }
 
-    assert_eq!(recursion, expected_i32);
-    assert_eq!(tabulated, expected64);
-    assert_eq!(memoized, expected_usize);
+    #[test]
+    fn test_fib_memoized() {
+        let mut memoized = [0; 100];
+        let expected: usize = 39088169;
+        let memoized = fib_memoized(38, &mut memoized);
+        assert_eq!(memoized, expected);
+    }
+    #[test]
+    fn test_fib_recursion() {
+        let expected: i32 = 39088169;
+        let recursion = fib_recursion(38);
+        assert_eq!(recursion, expected);
+    }
 }
