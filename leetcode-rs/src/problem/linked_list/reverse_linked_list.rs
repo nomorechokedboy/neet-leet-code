@@ -13,15 +13,13 @@ pub fn reverse_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
 
 #[cfg(test)]
 mod tests {
-    use crate::find_duplicate;
     use crate::problem::linked_list::reverse_linked_list::reverse_list;
     use crate::problem::linked_list::reverse_linked_list::ListNode;
 
     #[test]
     fn test_case() {
-        let node5 = ListNode::new(5);
         let mut node4 = ListNode::new(4);
-        node4.next = Some(Box::new(node5));
+        node4.next = Some(Box::new(ListNode::new(5)));
         let mut node3 = ListNode::new(3);
         node3.next = Some(Box::new(node4));
         let mut node2 = ListNode::new(2);
