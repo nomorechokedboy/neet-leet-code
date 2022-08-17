@@ -2,6 +2,7 @@ export * from './AddTwoNumber';
 export * from './MergeTwoList';
 export * from './ReverseLinkedList';
 export * from './entity';
+export * from './reorderList';
 import { ListNode } from './entity';
 
 export function removeElements(
