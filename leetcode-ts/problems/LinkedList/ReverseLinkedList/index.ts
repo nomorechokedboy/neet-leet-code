@@ -1,6 +1,6 @@
 import { ListNode } from '../entity';
 
-function reverseList(head: ListNode | null) {
+export function reverseList(head: ListNode | null) {
   let prev: ListNode | null = null;
 
   while (head) {
